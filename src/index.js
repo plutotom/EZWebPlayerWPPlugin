@@ -1,1 +1,1 @@
-import "./EZWebPlayer/ezwebplayer.js";
+import "./js/ezwebplayer.js";

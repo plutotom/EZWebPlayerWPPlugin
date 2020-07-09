@@ -1,6 +1,6 @@
 // importing dependecys
 import edit from "./edit.js";
-import blockIcons from "./images/Logo.js";
+import blockIcons from "../images/Logo.js";
 import { registerBlockType } from "@wordpress/blocks";
 import { __, _x } from "@wordpress/i18n";
 import { Fragment } from "react";

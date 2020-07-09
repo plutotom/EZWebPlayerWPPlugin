@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import blockIcons from "./images/Logo.js";
+import blockIcons from "../images/Logo.js";
 const { InspectorControls } = wp.editor;
 const { __ } = wp.i18n;
 const {
@@ -142,7 +142,10 @@ class App extends React.Component {
 								className="editor-block-icon block-editor-block-icon has-colors"
 							>
 								{blockIcons.EZWebPlayerIcon}
-								{/* <img
+								{
+									// may be used still
+								}
+								{/* <img 
 									width="24"
 									height="24"
 									viewBox="0 0 24 24"
