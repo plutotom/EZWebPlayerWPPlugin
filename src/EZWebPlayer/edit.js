@@ -156,78 +156,82 @@ class App extends React.Component {
 							{__("EZWebPlayer Quick View URL")}
 						</div>
 						<div className="components-placeholder__instructions">
-							{__("Paste your video or channel's Quick View URL")}
+							{__(
+								"   Paste your video or channel's Quick View URL"
+							)}
 							{__("to display your player on your site.")}
 						</div>
-						<form>
-							<input
-								type="url"
-								id="ezWebPlayer-link-input"
-								className="input-text"
-								placeholder={__("Enter URL to embed here…")}
-								value={this.props.attributes.inputedLink}
-								onChange={e => {
-									this.props.setAttributes({
-										inputedLink: e.target.value
-									});
-								}}
-								style={{
-									marginTop: "0",
-									marginRight: "8px",
-									flex: "1 1 auto",
-									flexGrow: "1",
-									flexShrink: "1",
-									flexBasis: "auto"
-								}}
-							/>
-							<Button
-								isSecondary
-								class="components-button"
-								type="submit"
-								onClick={this.initEmbed}
-							>
-								{__("Embed", "Embed")}
-							</Button>
-						</form>
-						<div display="block">
-							{
-								// displaying Error message
-							}
-							{this.state.error ? (
-								<div
-									display="block"
-									word-wrap="break-word"
-									className="alert"
-									style={{
-										padding: "5px",
-										color: "red",
-										display: "block"
+						<div className="components-placeholder__fieldset">
+							<form>
+								<input
+									type="url"
+									id="ezWebPlayer-link-input"
+									className="input-text"
+									placeholder={__("Enter URL to embed here…")}
+									value={this.props.attributes.inputedLink}
+									onChange={e => {
+										this.props.setAttributes({
+											inputedLink: e.target.value
+										});
 									}}
+									style={{
+										marginTop: "0",
+										marginRight: "8px",
+										flex: "1 1 auto",
+										flexGrow: "1",
+										flexShrink: "1",
+										flexBasis: "auto"
+									}}
+								/>
+								<Button
+									isSecondary
+									class="components-button"
+									type="submit"
+									onClick={this.initEmbed}
 								>
-									{`${this.state.errorMessage}`}
-								</div>
-							) : null}
-							{
-								// end dissplaying error message
-							}
-
-							<div
-								className="components-placeholder__learn-more"
-								style={{ display: "block" }}
-								display="block"
-							>
-								<ExternalLink>
-									<a
-										href="https://wordpress.org/support/article/embeds/"
-										target="_blank"
-										rel="external noreferrer noopener"
+									{__("Embed", "Embed")}
+								</Button>
+							</form>
+							<div display="block">
+								{
+									// displaying Error message
+								}
+								{this.state.error ? (
+									<div
+										display="block"
+										word-wrap="break-word"
+										className="alert"
+										style={{
+											padding: "5px",
+											color: "red",
+											display: "block"
+										}}
 									>
-										Learn more about embeds
-										<span class="screen-reader-text">
-											(opens in a new tab)
-										</span>
-									</a>
-								</ExternalLink>
+										{`${this.state.errorMessage}`}
+									</div>
+								) : null}
+								{
+									// end dissplaying error message
+								}
+
+								<div
+									className="components-placeholder__learn-more"
+									style={{ display: "block" }}
+									display="block"
+								>
+									<ExternalLink>
+										<a
+											href="https://wordpress.org/support/article/embeds/"
+											target="_blank"
+											rel="external noreferrer noopener"
+										>
+											Learn more about embeds
+											<span class="screen-reader-text">
+												(opens in a new tab)
+											</span>
+										</a>
+									</ExternalLink>
+								</div>
 							</div>
 						</div>
 					</Placeholder>

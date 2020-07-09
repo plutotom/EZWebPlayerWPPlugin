@@ -561,7 +561,9 @@ var App = /*#__PURE__*/function (_React$Component) {
             className: "editor-block-icon block-editor-block-icon has-colors"
           }, _images_Logo_js__WEBPACK_IMPORTED_MODULE_1__["default"].EZWebPlayerIcon), __("EZWebPlayer Quick View URL")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "components-placeholder__instructions"
-          }, __("Paste your video or channel's Quick View URL"), __("to display your player on your site.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          }, __("   Paste your video or channel's Quick View URL"), __("to display your player on your site.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "components-placeholder__fieldset"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
             type: "url",
             id: "ezWebPlayer-link-input",
             className: "input-text",
@@ -608,7 +610,7 @@ var App = /*#__PURE__*/function (_React$Component) {
             rel: "external noreferrer noopener"
           }, "Learn more about embeds", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             class: "screen-reader-text"
-          }, "(opens in a new tab)")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockControls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockAlignmentToolbar, {
+          }, "(opens in a new tab)"))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockControls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockAlignmentToolbar, {
             value: this.props.attributes.block_alignment,
             onChange: function onChange(new_val) {
               _this2.props.setAttributes({
@@ -790,7 +792,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])("ezw
         allowFullScreen: ""
       }))));
     } else {
-      return /*#__PURE__*/React.createElement("p", null, "somthing went wrong sorry");
+      return /*#__PURE__*/React.createElement("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])("somthing went wrong sorry"));
     }
   }
 });
