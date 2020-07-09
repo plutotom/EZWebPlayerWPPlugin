@@ -2,7 +2,7 @@
 /**
  * Plugin Name: EZWebPlayer - Video Plugin
  * Plugin URI: https://wordpress.org/plugins/ezwebplayer-wordpress-pro-video-plugin/
- * Version: 3.3
+ * Version: 1.0.23
  * Description: Connects your WordPress Site to EZWebPlayer’s service for managing your video content.
  * Author: EZWebPlayer.com
  * Author URI: https://www.ezwebplayer.com 

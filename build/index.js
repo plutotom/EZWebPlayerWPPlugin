@@ -97,6 +97,7 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _images_Logo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./images/Logo.js */ "./src/EZWebPlayer/images/Logo.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -109,7 +110,11 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
@@ -119,11 +124,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 var InspectorControls = wp.editor.InspectorControls;
@@ -241,7 +243,7 @@ var App = /*#__PURE__*/function (_React$Component) {
                               error: true
                             });
 
-                            _context2.next = 27;
+                            _context2.next = 26;
                             break;
 
                           case 9:
@@ -251,7 +253,6 @@ var App = /*#__PURE__*/function (_React$Component) {
 
                           case 12:
                             TempIframeCode = _context2.sent;
-                            console.log(TempIframeCode);
 
                             _this.setState({
                               finalIframeCode: TempIframeCode
@@ -262,23 +263,23 @@ var App = /*#__PURE__*/function (_React$Component) {
                             }); // Getting responsive iframe URL
 
 
-                            _context2.next = 18;
+                            _context2.next = 17;
                             return _this.GetResponsiveCode(TempIframeCode.split('"')[1], TempIframeCode.split("w=")[1].split("&")[0], TempIframeCode.split("h=")[1].split('"')[0]);
 
-                          case 18:
-                            _context2.next = 20;
+                          case 17:
+                            _context2.next = 19;
                             return _this.GetStaticCode(TempIframeCode.split('"')[1]);
 
-                          case 20:
+                          case 19:
                             _this.props.setAttributes({
                               displayIframe: true
                             });
 
-                            _context2.next = 27;
+                            _context2.next = 26;
                             break;
 
-                          case 23:
-                            _context2.prev = 23;
+                          case 22:
+                            _context2.prev = 22;
                             _context2.t1 = _context2["catch"](9);
                             console.log("Error! ", _context2.t1.message);
 
@@ -287,12 +288,12 @@ var App = /*#__PURE__*/function (_React$Component) {
                               error: true
                             });
 
-                          case 27:
+                          case 26:
                           case "end":
                             return _context2.stop();
                         }
                       }
-                    }, _callee2, null, [[9, 23]]);
+                    }, _callee2, null, [[9, 22]]);
                   }));
 
                   return function (_x6) {
@@ -330,24 +331,23 @@ var App = /*#__PURE__*/function (_React$Component) {
                       while (1) {
                         switch (_context4.prev = _context4.next) {
                           case 0:
-                            console.log(result, " this is results");
-                            _context4.next = 3;
+                            _context4.next = 2;
                             return result.Object;
 
-                          case 3:
+                          case 2:
                             _context4.t1 = _context4.sent;
                             _context4.t0 = _context4.t1 === null;
 
                             if (_context4.t0) {
-                              _context4.next = 7;
+                              _context4.next = 6;
                               break;
                             }
 
                             _context4.t0 = undefined;
 
-                          case 7:
+                          case 6:
                             if (!_context4.t0) {
-                              _context4.next = 12;
+                              _context4.next = 11;
                               break;
                             }
 
@@ -358,15 +358,15 @@ var App = /*#__PURE__*/function (_React$Component) {
                               error: true
                             });
 
-                            _context4.next = 28;
+                            _context4.next = 27;
                             break;
 
-                          case 12:
-                            _context4.prev = 12;
-                            _context4.next = 15;
+                          case 11:
+                            _context4.prev = 11;
+                            _context4.next = 14;
                             return result.Object.Share.IFrameCode.toString();
 
-                          case 15:
+                          case 14:
                             TempIframeCode = _context4.sent;
 
                             _this.setState({
@@ -374,24 +374,24 @@ var App = /*#__PURE__*/function (_React$Component) {
                             }); // Getting responsive iframe URL
 
 
-                            _context4.next = 19;
+                            _context4.next = 18;
                             return _this.GetResponsiveCode(TempIframeCode.split('"')[1], TempIframeCode.split("w=")[1].split("&")[0], TempIframeCode.split("h=")[1].split('"')[0]);
 
-                          case 19:
-                            _context4.next = 21;
+                          case 18:
+                            _context4.next = 20;
                             return _this.GetStaticCode(TempIframeCode.split('"')[1]);
 
-                          case 21:
+                          case 20:
                             _this.props.setAttributes({
                               displayIframe: true
                             });
 
-                            _context4.next = 28;
+                            _context4.next = 27;
                             break;
 
-                          case 24:
-                            _context4.prev = 24;
-                            _context4.t2 = _context4["catch"](12);
+                          case 23:
+                            _context4.prev = 23;
+                            _context4.t2 = _context4["catch"](11);
                             console.log("Error! ", _context4.t2);
 
                             _this.setState({
@@ -399,12 +399,12 @@ var App = /*#__PURE__*/function (_React$Component) {
                               error: true
                             });
 
-                          case 28:
+                          case 27:
                           case "end":
                             return _context4.stop();
                         }
                       }
-                    }, _callee4, null, [[12, 24]]);
+                    }, _callee4, null, [[11, 23]]);
                   }));
 
                   return function (_x9) {
@@ -434,11 +434,11 @@ var App = /*#__PURE__*/function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "SplitingLink", function () {
-      // SplitingLink takes the users input and determs wether it is a channal or video
-      // e is event
+      // SplitingLink takes the users input and determs weather it is a channal or video
       _this.props.setAttributes({
         responsiveType: true
-      });
+      }); // needs to be changed to a ref
+
 
       if (document.querySelector(".input-text")) {
         _this.props.setAttributes({
@@ -451,37 +451,26 @@ var App = /*#__PURE__*/function (_React$Component) {
       var TAL = _this.state.videoURL.split(".");
 
       if (TAL.length == 2) {
-        console.log(TAL + " this is TAL 2"); //https://domain.com/playerinfo
-
+        //https://domain.com/playerinfo
         if (TAL[1].split("/C/").length >= 2) {
           //Channel Player
-          console.log(TAL[1].split("/V")[1] + " this is TAL 2 channel player");
-
           _this.GetChannelPlayerInfo(TAL[1].split("/C/")[1], _this.props.attributes.responsiveType);
         } else if (TAL[1].split("/V").length >= 2) {
           //Video Player
-          console.log(TAL[1].split("/V")[1] + " this is TAL 2 video player");
-
           _this.GetVideoPlayerInfo(TAL[1].split("/V")[1], _this.props.attributes.responsiveType);
         }
       } else if (TAL.length == 3) {
         //https://cname.domain.com/playerinfo
         if (TAL[2].split("/C/").length >= 2) {
           //Channel Player
-          console.log("almost last");
-
           _this.GetChannelPlayerInfo(TAL[2].split("/C/")[1], _this.props.attributes.responsiveType);
         } else if (TAL[2].split("/V").length >= 2) {
           //Video Player
-          console.log("last one");
-
           _this.GetVideoPlayerInfo(TAL[2].split("/V")[1], _this.props.attributes.responsiveType);
         } else {
           console.log("can not use this link");
         }
       } else {
-        console.log("other broken place");
-
         _this.setState({
           error: true,
           errorMessage: "Please enter link from EZWebPlayer"
@@ -515,7 +504,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 
       if ( // responsive iframe render
       this.props.attributes.displayIframe === true && this.props.attributes.responsiveType === true) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, console.log(this.props.attributes.block_alignment), console.log("displaying responsive iframe html", this.props.attributes), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("style", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, console.log(this.props.attributes.block_alignment), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("style", {
           dangerouslySetInnerHTML: {
             __html: ".Video iframe,.Video object,.Video embed,.Video video,.Video img {position:absolute; width:100%; height:100%; left:0; top:0;}"
           }
@@ -548,7 +537,7 @@ var App = /*#__PURE__*/function (_React$Component) {
           }
         })),
         /*#__PURE__*/
-        // Aligns content
+        // Adds icon in toopbar to align left, center, right
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockAlignmentToolbar, {
           value: this.props.attributes.block_alignment,
           onChange: function onChange(new_val) {
@@ -557,201 +546,78 @@ var App = /*#__PURE__*/function (_React$Component) {
             });
           }
         })));
-      } // if (
-      // 	// static iframe render
-      // 	this.props.attributes.displayIframe === true &&
-      // 	this.props.attributes.responsiveType === false
-      // ) {
-      // 	return (
-      // 		<Fragment>
-      // 			{console.log(
-      // 				"displaying static iframe html",
-      // 				this.props.attributes
-      // 			)}
-      // 			<div
-      // 				className={`wp-block-embed align${this.props.attributes.block_alignment}`}
-      // 			>
-      // 				<iframe
-      // 					src={this.props.attributes.staticIframeSrc}
-      // 					style={{
-      // 						borderWidth: "0",
-      // 						width: `${this.props.attributes.IFrameW}px`,
-      // 						height: `${this.props.attributes.IFrameH}px`
-      // 					}}
-      // 					scrolling="no"
-      // 					allowFullScreen=""
-      // 				></iframe>
-      // 			</div>
-      // 			{
-      // 				// edit url btn
-      // 			}
-      // 			<BlockControls>
-      // 				<Toolbar>
-      // 					<IconButton
-      // 						// this is the edit iframe button
-      // 						align="true"
-      // 						label="Edit URL"
-      // 						icon="edit"
-      // 						className="EZWebplayer-edit-btn"
-      // 						onClick={() =>
-      // 							this.props.setAttributes({
-      // 								displayIframe: false
-      // 							})
-      // 						}
-      // 					/>
-      // 				</Toolbar>
-      // 				<BlockAlignmentToolbar
-      // 					value={this.props.attributes.block_alignment}
-      // 					onChange={new_val => {
-      // 						this.props.setAttributes({
-      // 							block_alignment: new_val
-      // 						});
-      // 					}}
-      // 				/>
-      // 			</BlockControls>
-      // 			{
-      // 				// Side bar settings
-      // 			}
-      // 			<InspectorControls>
-      // 				<PanelBody>
-      // 					<PanelRow>
-      // 						{this.props.attributes.block_alignment ===
-      // 							"left" ||
-      // 						"right" ||
-      // 						"full" ? (
-      // 							<div>
-      // 								<ToggleControl
-      // 									id={"toggle-responsive"}
-      // 									label="Responsive"
-      // 									checked={
-      // 										this.props.attributes
-      // 											.responsiveType
-      // 									} // this.state.responsiveType === props.attrubuts.responsiveType
-      // 									onChange={() => {
-      // 										this.props.setAttributes({
-      // 											responsiveType: !this.props
-      // 												.attributes
-      // 												.responsiveType
-      // 										});
-      // 									}}
-      // 								></ToggleControl>
-      // 								{console.log(
-      // 									this.props.attributes
-      // 										.block_alignment,
-      // 									" Alignment direction"
-      // 								)}
-      // 							</div>
-      // 						) : (
-      // 							<div>
-      // 								{/* <Disabled>
-      // 									<ToggleControl
-      // 										id={"toggle-responsive"}
-      // 										label="Responsive"
-      // 										checked={
-      // 											this.props.attributes
-      // 												.responsiveType
-      // 										} // this.state.responsiveType === props.attrubuts.responsiveType
-      // 										onChange={() => {
-      // 											this.props.setAttributes({
-      // 												responsiveType: !this
-      // 													.props.attributes
-      // 													.responsiveType
-      // 											});
-      // 										}}
-      // 									></ToggleControl>
-      // 								</Disabled> */}
-      // 							</div>
-      // 						)}
-      // 					</PanelRow>
-      // 					<p>
-      // 						Automatically adjusts the player size for
-      // 						different screen sizes and viewports.
-      // 					</p>
-      // 				</PanelBody>
-      // 			</InspectorControls>
-      // 		</Fragment>
-      // 	);
-      // }
-      else {
-          return (
-            /*#__PURE__*/
-            // Input Form
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, console.log(this.props.attributes.block_alignment), console.log("displaying input html", this.props.attributes, this.state), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Placeholder, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-              className: "components-placeholder__label"
-            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-              style: {
-                color: "rgb(255, 0, 0)"
-              },
-              className: "editor-block-icon block-editor-block-icon has-colors"
-            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-              width: "24",
-              height: "24",
-              viewBox: "0 0 24 24",
-              role: "img",
-              "aria-hidden": "true",
-              focusable: "false",
-              src: "https://www.ezwebplayer.com/wp-content/uploads/2020/01/favicon-150x150.png"
-            })), __("EZWebPlayer Quick View URL")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-              className: "components-placeholder__instructions"
-            }, "Paste your video or channel's Quick View URL", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " to display your player on your site."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-              type: "url",
-              id: "ezWebPlayer-link-input",
-              className: "input-text",
-              placeholder: __("Enter URL to embed here…"),
-              value: this.props.attributes.inputedLink,
-              onChange: function onChange(e) {
-                _this2.props.setAttributes({
-                  inputedLink: e.target.value
-                });
-
-                console.log(e.target.value);
-              },
-              style: {
-                marginTop: "0",
-                marginRight: "8px",
-                flex: "1 1 auto",
-                flexGrow: "1",
-                flexShrink: "1",
-                flexBasis: "auto"
-              }
-            }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Button, {
-              isLarge: true,
-              class: "components-button",
-              type: "submit",
-              onClick: this.initEmbed
-            }, __("Embed", "Embed"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      } else {
+        return (
+          /*#__PURE__*/
+          // Input Form
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, console.log(this.props.attributes.block_alignment), console.log("displaying input html", this.props.attributes, this.state), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Placeholder, {
+            className: "wp-block-embed"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "components-placeholder__label "
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            style: {
+              color: "rgb(255, 0, 0)"
+            },
+            className: "editor-block-icon block-editor-block-icon has-colors"
+          }, _images_Logo_js__WEBPACK_IMPORTED_MODULE_1__["default"].EZWebPlayerIcon), __("EZWebPlayer Quick View URL")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "components-placeholder__instructions"
+          }, __("Paste your video or channel's Quick View URL"), __("to display your player on your site.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            type: "url",
+            id: "ezWebPlayer-link-input",
+            className: "input-text",
+            placeholder: __("Enter URL to embed here…"),
+            value: this.props.attributes.inputedLink,
+            onChange: function onChange(e) {
+              _this2.props.setAttributes({
+                inputedLink: e.target.value
+              });
+            },
+            style: {
+              marginTop: "0",
+              marginRight: "8px",
+              flex: "1 1 auto",
+              flexGrow: "1",
+              flexShrink: "1",
+              flexBasis: "auto"
+            }
+          }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Button, {
+            isSecondary: true,
+            class: "components-button",
+            type: "submit",
+            onClick: this.initEmbed
+          }, __("Embed", "Embed"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            display: "block"
+          }, this.state.error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            display: "block",
+            "word-wrap": "break-word",
+            className: "alert",
+            style: {
+              padding: "5px",
+              color: "red",
               display: "block"
-            }, this.state.error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-              display: "block",
-              "word-wrap": "break-word",
-              className: "alert",
-              style: {
-                padding: "5px",
-                color: "red",
-                display: "block"
-              }
-            }, "".concat(this.state.errorMessage)) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-              className: "components-placeholder__learn-more",
-              style: {
-                display: "block"
-              },
+            }
+          }, "".concat(this.state.errorMessage)) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "components-placeholder__learn-more",
+            style: {
               display: "block"
-            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ExternalLink, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-              href: "https://wordpress.org/support/article/embeds/",
-              target: "_blank",
-              rel: "external noreferrer noopener"
-            }, "Learn more about embeds", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-              class: "screen-reader-text"
-            }, "(opens in a new tab)")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockControls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockAlignmentToolbar, {
-              value: this.props.attributes.block_alignment,
-              onChange: function onChange(new_val) {
-                _this2.props.setAttributes({
-                  block_alignment: new_val
-                });
-              }
-            }))))
-          );
-        }
+            },
+            display: "block"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ExternalLink, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+            href: "https://wordpress.org/support/article/embeds/",
+            target: "_blank",
+            rel: "external noreferrer noopener"
+          }, "Learn more about embeds", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            class: "screen-reader-text"
+          }, "(opens in a new tab)")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockControls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockAlignmentToolbar, {
+            value: this.props.attributes.block_alignment,
+            onChange: function onChange(new_val) {
+              _this2.props.setAttributes({
+                block_alignment: new_val
+              });
+            }
+          })))
+        );
+      }
     } // ==================================================
 
   }, {
@@ -801,7 +667,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit.js */ "./src/EZWebPlayer/edit.js");
-/* harmony import */ var _icon_Logo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon/Logo.js */ "./src/EZWebPlayer/icon/Logo.js");
+/* harmony import */ var _images_Logo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./images/Logo.js */ "./src/EZWebPlayer/images/Logo.js");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
@@ -813,11 +679,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // add_theme_support("responsive-embeds");
 
 /**
  * Register: a Gutenberg Block.
- *
  * Registers a new block provided a unique name and an object defining its
  * behavior. Once registered, the block is made editor as an option to any
  * editor interface where blocks are implemented.
@@ -832,19 +696,11 @@ __webpack_require__.r(__webpack_exports__);
 Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])("ezwebplayer/ezweb-player-embeded", {
   // Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
   title: "EZWebPlayer",
-  description: /*#__PURE__*/React.createElement("p", null, "Sign up for your free trial account today:", " ", /*#__PURE__*/React.createElement("a", {
+  description: /*#__PURE__*/React.createElement("p", null, "Sign up for your free trial account today:", /*#__PURE__*/React.createElement("a", {
     href: "https://my.ezwebplayer.com/Register",
     target: "_blank"
-  }, "Here"), " "),
-  icon: _icon_Logo_js__WEBPACK_IMPORTED_MODULE_1__["default"].EZWebPlayerIcon,
-  // <img
-  // 	src="https://www.ezwebplayer.com/wp-content/uploads/2020/01/favicon-150x150.png"
-  // 	width="24px"
-  // 	height="24"
-  // />
-  // ezWebPlayerIcon,
-  // <svg viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z" /><path d="M19 13H5v-2h14v2z" /></svg>
-  // src="https://www.ezwebplayer.com/wp-content/uploads/2020/01/favicon-150x150.png"
+  }, "Here")),
+  icon: _images_Logo_js__WEBPACK_IMPORTED_MODULE_1__["default"].EZWebPlayerIcon,
   category: "embed",
   // https://developer.wordpress.org/block-editor/developers/filters/block-filters/#managing-block-categories
   keywords: [( // Key words are search words, when someone types video, ezwebpalyer will be a response.
@@ -905,75 +761,46 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])("ezw
       };
     }
   },
-  // supports: {
-  // 	align: true,
-  // 	lightBlockWrapper: true,
-  // },
   // @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
   edit: _edit_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   //imported in from edit.js built in react + ES6
   save: function save(props) {
     if (props.attributes.responsiveType) {
-      return (
-        /*#__PURE__*/
-        // responsive iframe render
-        React.createElement(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, /*#__PURE__*/React.createElement("div", {
-          className: "wp-block-embed align".concat(props.attributes.block_alignment)
-        }, /*#__PURE__*/React.createElement("style", {
-          dangerouslySetInnerHTML: {
-            __html: ".Video iframe,.Video object,.Video embed,.Video video,.Video img {position:absolute; width:100%; height:100%; left:0; top:0;}"
-          }
-        }), /*#__PURE__*/React.createElement("div", {
-          className: "Video",
-          style: {
-            position: "relative",
-            width: "100%",
-            height: "0",
-            paddingBottom: "".concat(props.attributes.videoNP, "%")
-          }
-        }, console.log(props.attributes.block_alignment), /*#__PURE__*/React.createElement("iframe", {
-          className: "iframeR ",
-          src: props.attributes.responsiveIFrameSrc,
-          scrolling: "no",
-          style: {
-            borderWidth: "0"
-          },
-          allowFullScreen: ""
-        }))))
-      );
-    } // if (props.attributes.responsiveType === false) {
-    // 	return (
-    // 		// statice iframe render
-    // 		<Fragment>
-    // 			<div
-    // 				className={`wp-block-embed align${props.attributes.block_alignment}`}
-    // 			>
-    // 				<iframe
-    // 					src={props.attributes.staticIframeSrc}
-    // 					style={{
-    // 						borderWidth: "0",
-    // 						width: `${props.attributes.IFrameW}px`,
-    // 						height: `${props.attributes.IFrameH}px`
-    // 					}}
-    // 					scrolling="no"
-    // 					allowFullScreen=""
-    // 				></iframe>
-    // 			</div>
-    // 		</Fragment>
-    // 	);
-    // }
-    else {
-        return /*#__PURE__*/React.createElement("p", null, "somthing went wrong sorry");
-      }
+      return /*#__PURE__*/React.createElement(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, /*#__PURE__*/React.createElement("div", {
+        className: "wp-block-embed align".concat(props.attributes.block_alignment)
+      }, /*#__PURE__*/React.createElement("style", {
+        dangerouslySetInnerHTML: {
+          __html: ".Video iframe,.Video object,.Video embed,.Video video,.Video img {position:absolute; width:100%; height:100%; left:0; top:0;}"
+        }
+      }), /*#__PURE__*/React.createElement("div", {
+        className: "Video",
+        style: {
+          position: "relative",
+          width: "100%",
+          height: "0",
+          paddingBottom: "".concat(props.attributes.videoNP, "%")
+        }
+      }, console.log(props.attributes.block_alignment), /*#__PURE__*/React.createElement("iframe", {
+        className: "iframeR ",
+        src: props.attributes.responsiveIFrameSrc,
+        scrolling: "no",
+        style: {
+          borderWidth: "0"
+        },
+        allowFullScreen: ""
+      }))));
+    } else {
+      return /*#__PURE__*/React.createElement("p", null, "somthing went wrong sorry");
+    }
   }
 });
 
 /***/ }),
 
-/***/ "./src/EZWebPlayer/icon/Logo.js":
-/*!**************************************!*\
-  !*** ./src/EZWebPlayer/icon/Logo.js ***!
-  \**************************************/
+/***/ "./src/EZWebPlayer/images/Logo.js":
+/*!****************************************!*\
+  !*** ./src/EZWebPlayer/images/Logo.js ***!
+  \****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -986,6 +813,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /**
  * WordPress dependencies
  */
+// image can be found here: https://www.ezwebplayer.com/wp-content/uploads/2020/01/favicon-150x150.png
 var _wp$components = wp.components,
     G = _wp$components.G,
     Path = _wp$components.Path,

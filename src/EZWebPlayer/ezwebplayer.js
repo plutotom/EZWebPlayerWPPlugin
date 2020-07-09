@@ -1,13 +1,11 @@
 // importing dependecys
 import edit from "./edit.js";
-import blockIcons from "./icon/Logo.js";
+import blockIcons from "./images/Logo.js";
 import { registerBlockType } from "@wordpress/blocks";
 import { __, _x } from "@wordpress/i18n";
 import { Fragment } from "react";
-// add_theme_support("responsive-embeds");
 /**
  * Register: a Gutenberg Block.
- *
  * Registers a new block provided a unique name and an object defining its
  * behavior. Once registered, the block is made editor as an option to any
  * editor interface where blocks are implemented.
@@ -24,22 +22,13 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 	title: "EZWebPlayer",
 	description: (
 		<p>
-			Sign up for your free trial account today:{" "}
+			Sign up for your free trial account today:
 			<a href="https://my.ezwebplayer.com/Register" target="_blank">
 				Here
-			</a>{" "}
+			</a>
 		</p>
 	),
 	icon: blockIcons.EZWebPlayerIcon,
-	// <img
-	// 	src="https://www.ezwebplayer.com/wp-content/uploads/2020/01/favicon-150x150.png"
-	// 	width="24px"
-	// 	height="24"
-	// />
-	// ezWebPlayerIcon,
-
-	// <svg viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z" /><path d="M19 13H5v-2h14v2z" /></svg>
-	// src="https://www.ezwebplayer.com/wp-content/uploads/2020/01/favicon-150x150.png"
 	category: "embed", // https://developer.wordpress.org/block-editor/developers/filters/block-filters/#managing-block-categories
 	keywords: [
 		// Key words are search words, when someone types video, ezwebpalyer will be a response.
@@ -111,17 +100,11 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 			return { "data-align": block_alignment };
 		}
 	},
-	// supports: {
-	// 	align: true,
-	// 	lightBlockWrapper: true,
-	// },
-
 	// @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	edit, //imported in from edit.js built in react + ES6
 	save: function(props) {
 		if (props.attributes.responsiveType) {
 			return (
-				// responsive iframe render
 				<Fragment>
 					<div
 						className={`wp-block-embed align${props.attributes.block_alignment}`}
@@ -155,30 +138,8 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 					</div>
 				</Fragment>
 			);
-		}
-		// if (props.attributes.responsiveType === false) {
-		// 	return (
-		// 		// statice iframe render
-		// 		<Fragment>
-		// 			<div
-		// 				className={`wp-block-embed align${props.attributes.block_alignment}`}
-		// 			>
-		// 				<iframe
-		// 					src={props.attributes.staticIframeSrc}
-		// 					style={{
-		// 						borderWidth: "0",
-		// 						width: `${props.attributes.IFrameW}px`,
-		// 						height: `${props.attributes.IFrameH}px`
-		// 					}}
-		// 					scrolling="no"
-		// 					allowFullScreen=""
-		// 				></iframe>
-		// 			</div>
-		// 		</Fragment>
-		// 	);
-		// }
-		else {
-			return <p>somthing went wrong sorry</p>;
+		} else {
+			return <p>{__("somthing went wrong sorry")}</p>;
 		}
 	}
 });

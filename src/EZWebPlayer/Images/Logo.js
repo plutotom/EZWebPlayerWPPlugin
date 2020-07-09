@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-
+// image can be found here: https://www.ezwebplayer.com/wp-content/uploads/2020/01/favicon-150x150.png
 const { G, Path, Polygon, SVG } = wp.components;
 const blockIcons = {
 	EZWebPlayerIcon: (
