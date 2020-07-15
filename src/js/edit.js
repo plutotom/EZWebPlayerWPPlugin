@@ -10,7 +10,7 @@ const {
 	PanelRow,
 	PanelBody,
 	Toolbar,
-	IconButton
+	IconButton,
 } = wp.components;
 
 const {
@@ -18,7 +18,7 @@ const {
 	BlockControls,
 	AlignmentToolbar,
 	inspectorControls,
-	BlockAlignmentToolbar
+	BlockAlignmentToolbar,
 } = wp.blockEditor;
 
 class App extends React.Component {
@@ -31,7 +31,7 @@ class App extends React.Component {
 			responsiveType: this.props.attributes.responsiveType, // weather statice or responsive video
 			inputedLink: this.props.attributes.inputedLink,
 			errorMessage: null, // If errorMessage is not === to null then display error message to user
-			error: false
+			error: false,
 		};
 	}
 	//======================================================
@@ -46,7 +46,7 @@ class App extends React.Component {
 		this.props.setAttributes({ responsiveIFrameSrc: IFrameSrc });
 		this.props.setAttributes({ videoNP: NP });
 	};
-	GetStaticCode = iframeSrc => {
+	GetStaticCode = (iframeSrc) => {
 		console.log("running Static code");
 		this.props.setAttributes({ staticIframeSrc: iframeSrc });
 	};
@@ -65,7 +65,7 @@ class App extends React.Component {
 					<style
 						dangerouslySetInnerHTML={{
 							__html:
-								".Video iframe,.Video object,.Video embed,.Video video,.Video img {position:absolute; width:100%; height:100%; left:0; top:0;}"
+								".Video iframe,.Video object,.Video embed,.Video video,.Video img {position:absolute; width:100%; height:100%; left:0; top:0;}",
 						}}
 					/>
 					<div
@@ -74,7 +74,7 @@ class App extends React.Component {
 							position: "relative",
 							width: "100%",
 							height: "0",
-							paddingBottom: `${this.props.attributes.videoNP}%`
+							paddingBottom: `${this.props.attributes.videoNP}%`,
 						}}
 					>
 						<iframe
@@ -85,7 +85,7 @@ class App extends React.Component {
 							}
 							scrolling="no"
 							style={{
-								borderWidth: "0"
+								borderWidth: "0",
 							}}
 							allowFullScreen=""
 						></iframe>
@@ -104,7 +104,7 @@ class App extends React.Component {
 								className="EZWebplayer-edit-btn"
 								onClick={() =>
 									this.props.setAttributes({
-										displayIframe: false
+										displayIframe: false,
 									})
 								}
 							/>
@@ -114,9 +114,9 @@ class App extends React.Component {
 							// Adds icon in toopbar to align left, center, right
 							<BlockAlignmentToolbar
 								value={this.props.attributes.block_alignment}
-								onChange={new_val => {
+								onChange={(new_val) => {
 									this.props.setAttributes({
-										block_alignment: new_val
+										block_alignment: new_val,
 									});
 								}}
 							/>
@@ -172,9 +172,9 @@ class App extends React.Component {
 									className="input-text"
 									placeholder={__("Enter URL to embed here…")}
 									value={this.props.attributes.inputedLink}
-									onChange={e => {
+									onChange={(e) => {
 										this.props.setAttributes({
-											inputedLink: e.target.value
+											inputedLink: e.target.value,
 										});
 									}}
 									style={{
@@ -183,7 +183,7 @@ class App extends React.Component {
 										flex: "1 1 auto",
 										flexGrow: "1",
 										flexShrink: "1",
-										flexBasis: "auto"
+										flexBasis: "auto",
 									}}
 								/>
 								<Button
@@ -207,7 +207,7 @@ class App extends React.Component {
 										style={{
 											padding: "5px",
 											color: "red",
-											display: "block"
+											display: "block",
 										}}
 									>
 										{`${this.state.errorMessage}`}
@@ -241,9 +241,9 @@ class App extends React.Component {
 					<BlockControls>
 						<BlockAlignmentToolbar
 							value={this.props.attributes.block_alignment}
-							onChange={new_val => {
+							onChange={(new_val) => {
 								this.props.setAttributes({
-									block_alignment: new_val
+									block_alignment: new_val,
 								});
 							}}
 						/>
@@ -255,18 +255,18 @@ class App extends React.Component {
 	// ==================================================
 	GetVideoPlayerInfo = async (VID, R) => {
 		console.log("GetVideoPlayerInfo running", VID);
+
 		window // window === whe whole dom, used to get webService script.
 			.WebService("https://ezwp.tv/VideoServices")
-			.GetVideoGet(
-				VID,
-				this.state.responceType
-			).onResult = async result => {
+			.GetVideoGet(VID, this.state.responceType).onResult = async (
+			result
+		) => {
 			console.log(result.StatusMessage, " this is results");
 			if ((await result.Object) === null) {
 				console.log("Error! Not able to get Video.");
 				this.setState({
 					errorMessage: "Error! Unable to get video, maybe bad link",
-					error: true
+					error: true,
 				});
 			} else {
 				try {
@@ -284,14 +284,14 @@ class App extends React.Component {
 					// Getting static iframe URL
 					await this.GetStaticCode(TempIframeCode.split('"')[1]);
 					this.props.setAttributes({
-						displayIframe: true
+						displayIframe: true,
 					});
 				} catch (err) {
 					console.log("Error! ", err.message);
 					this.setState({
 						errorMessage:
 							"Error! Unable to get video, maybe bad link",
-						error: true
+						error: true,
 					});
 				}
 			}
@@ -306,12 +306,12 @@ class App extends React.Component {
 			.GetChannelGet(
 				CID,
 				this.state.responceType // setting what kind of response the users wants from EZWebPlayer web script.
-			).onResult = async result => {
+			).onResult = async (result) => {
 			if ((await result.Object) === null || undefined) {
 				console.log("Error! Not able to get Video.");
 				this.setState({
 					errorMessage: "Error! Unable to get video, maybe bad link",
-					error: true
+					error: true,
 				});
 			} else {
 				try {
@@ -327,21 +327,21 @@ class App extends React.Component {
 					// Getting static iframe URL
 					await this.GetStaticCode(TempIframeCode.split('"')[1]);
 					this.props.setAttributes({
-						displayIframe: true
+						displayIframe: true,
 					});
 				} catch (err) {
 					console.log("Error! ", err);
 					this.setState({
 						errorMessage:
 							"Error! Unable to get video, maybe bad link",
-						error: true
+						error: true,
 					});
 				}
 			}
 		};
 	};
 	//======================================================
-	initEmbed = e => {
+	initEmbed = (e) => {
 		if (e) {
 			e.preventDefault();
 		}
@@ -355,10 +355,9 @@ class App extends React.Component {
 			this.props.setAttributes({
 				videoURL: (this.state.videoURL = document.querySelector(
 					".input-text"
-				).value)
+				).value),
 			});
 		}
-
 		console.log(this.state.videoURL, "Getting Iframe");
 		//Text Area Length
 		var TAL = this.state.videoURL.split(".");
@@ -400,31 +399,30 @@ class App extends React.Component {
 		} else {
 			this.setState({
 				error: true,
-				errorMessage: "Please enter link from EZWebPlayer"
+				errorMessage: "Please enter link from EZWebPlayer",
 			});
 		}
 	};
 
 	//======================================================
 	componentDidMount() {
+		//
 		// loading both webservice script and Jquery
 		// jquery is used inside of webservice script and must be loaded
-		const EZWebScript = document.createElement("script");
-		EZWebScript.type = "text/javascript";
-		EZWebScript.src = "https://ezwp.tv/Scripts/webService.js";
-		EZWebScript.async = false;
-		document.head.appendChild(EZWebScript);
-		console.log(EZWebScript);
-
-		const de = document.createElement("script");
-		de.type = "text/javascript";
-		de.src = "https://code.jquery.com/jquery-3.5.1.min.js";
-		de.async = false;
-		document.head.appendChild(de);
-		console.log(de);
-
-		EZWebScript.onload = () => console.log("script loaded");
-		de.onload = () => console.log("JQuer is loaded");
+		// const EZWebScript = document.createElement("script");
+		// EZWebScript.type = "text/javascript";
+		// EZWebScript.src = "https://ezwp.tv/Scripts/webService.js";
+		// EZWebScript.async = false;
+		// document.head.appendChild(EZWebScript);
+		// console.log(EZWebScript);
+		// const de = document.createElement("script");
+		// de.type = "text/javascript";
+		// de.src = "https://code.jquery.com/jquery-3.5.1.min.js";
+		// de.async = false;
+		// document.head.appendChild(de);
+		// console.log(de);
+		// EZWebScript.onload = () => console.log("script loaded");
+		// de.onload = () => console.log("JQuery is loaded");
 	}
 	// ==================================================
 }
