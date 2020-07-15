@@ -25,30 +25,32 @@ class App extends React.Component {
 	constructor(attributes) {
 		super(attributes);
 		this.state = {
-			videoURL: this.props.attributes.videoURL, // this may be used to hold link for btns
-			responceType: "4", // tells webservice what responsive we want
-			renderIframeR: this.props.attributes.displayIframe, // responsive == true, static == false
-			responsiveType: this.props.attributes.responsiveType, // weather statice or responsive video
-			inputedLink: this.props.attributes.inputedLink,
-			errorMessage: null, // If errorMessage is not === to null then display error message to user
-			error: false,
+			EZWPvideoURL: this.props.attributes.EZWPvideoURL, // this may be used to hold link for btns
+			EZWPresponceType: "4", // tells webservice what responsive we want
+			EZWPrenderIframeR: this.props.attributes.EZWPdisplayIframe, // responsive == true, static == false
+			EZWPresponsiveType: this.props.attributes.EZWPresponsiveType, // weather statice or responsive video
+			EZWPinputedLink: this.props.attributes.EZWPinputedLink,
+			EZWPerrorMessage: null, // If EZWPerrorMessage is not === to null then display EZWPerror message to user
+			EZWPerror: false,
 		};
 	}
 	//======================================================
-	GetResponsiveCode = async (IFrameSrc, IFrameW, IFrameH) => {
-		console.log("running get responsive code", IFrameW, IFrameH);
-		IFrameSrc = IFrameSrc + "&r"; // requierd for responsive iframe
+	GetResponsiveCode = async (EZWPIFrameSrc, EZWPIFrameW, EZWPIFrameH) => {
+		console.log("running get responsive code", EZWPIFrameW, EZWPIFrameH);
+		EZWPIFrameSrc = EZWPIFrameSrc + "&r"; // requierd for responsive iframe
 		//New Percent
-		var NP = Math.round((parseInt(IFrameH) / parseInt(IFrameW)) * 100);
+		let NP = Math.round(
+			(parseInt(EZWPIFrameH) / parseInt(EZWPIFrameW)) * 100
+		);
 
-		this.props.setAttributes({ IFrameW: IFrameW });
-		this.props.setAttributes({ IFrameH: IFrameH });
-		this.props.setAttributes({ responsiveIFrameSrc: IFrameSrc });
-		this.props.setAttributes({ videoNP: NP });
+		this.props.setAttributes({ EZWPIFrameW: EZWPIFrameW });
+		this.props.setAttributes({ EZWPIFrameH: EZWPIFrameH });
+		this.props.setAttributes({ EZWPresponsiveIFrameSrc: EZWPIFrameSrc });
+		this.props.setAttributes({ EZWPvideoNP: NP });
 	};
-	GetStaticCode = (iframeSrc) => {
+	GetStaticCode = (EZWPiframeSrc) => {
 		console.log("running Static code");
-		this.props.setAttributes({ staticIframeSrc: iframeSrc });
+		this.props.setAttributes({ EZWPstaticIframeSrc: EZWPiframeSrc });
 	};
 
 	//======================================================
@@ -56,12 +58,12 @@ class App extends React.Component {
 	render() {
 		if (
 			// responsive iframe render
-			this.props.attributes.displayIframe === true &&
-			this.props.attributes.responsiveType === true
+			this.props.attributes.EZWPdisplayIframe === true &&
+			this.props.attributes.EZWPresponsiveType === true
 		) {
 			return (
 				<Fragment>
-					{console.log(this.props.attributes.block_alignment)}
+					{console.log(this.props.attributes.EZWPblock_alignment)}
 					<style
 						dangerouslySetInnerHTML={{
 							__html:
@@ -69,19 +71,19 @@ class App extends React.Component {
 						}}
 					/>
 					<div
-						className={`Video video responsive-iframe wp-block-embed align${this.props.attributes.block_alignment}`}
+						className={`Video video responsive-iframe wp-block-embed align${this.props.attributes.EZWPblock_alignment}`}
 						style={{
 							position: "relative",
 							width: "100%",
 							height: "0",
-							paddingBottom: `${this.props.attributes.videoNP}%`,
+							paddingBottom: `${this.props.attributes.EZWPvideoNP}%`,
 						}}
 					>
 						<iframe
 							className="iframe"
 							src={
-								this.state.IFrameSrc ||
-								this.props.attributes.responsiveIFrameSrc
+								this.state.EZWPIFrameSrc ||
+								this.props.attributes.EZWPresponsiveIFrameSrc
 							}
 							scrolling="no"
 							style={{
@@ -104,7 +106,7 @@ class App extends React.Component {
 								className="EZWebplayer-edit-btn"
 								onClick={() =>
 									this.props.setAttributes({
-										displayIframe: false,
+										EZWPdisplayIframe: false,
 									})
 								}
 							/>
@@ -113,10 +115,12 @@ class App extends React.Component {
 						{
 							// Adds icon in toopbar to align left, center, right
 							<BlockAlignmentToolbar
-								value={this.props.attributes.block_alignment}
+								value={
+									this.props.attributes.EZWPblock_alignment
+								}
 								onChange={(new_val) => {
 									this.props.setAttributes({
-										block_alignment: new_val,
+										EZWPblock_alignment: new_val,
 									});
 								}}
 							/>
@@ -128,7 +132,7 @@ class App extends React.Component {
 			return (
 				// Input Form
 				<div>
-					{console.log(this.props.attributes.block_alignment)}
+					{console.log(this.props.attributes.EZWPblock_alignment)}
 					{console.log(
 						"displaying input html",
 						this.props.attributes,
@@ -171,10 +175,12 @@ class App extends React.Component {
 									id="ezWebPlayer-link-input"
 									className="input-text"
 									placeholder={__("Enter URL to embed here…")}
-									value={this.props.attributes.inputedLink}
+									value={
+										this.props.attributes.EZWPinputedLink
+									}
 									onChange={(e) => {
 										this.props.setAttributes({
-											inputedLink: e.target.value,
+											EZWPinputedLink: e.target.value,
 										});
 									}}
 									style={{
@@ -199,7 +205,7 @@ class App extends React.Component {
 								{
 									// displaying Error message
 								}
-								{this.state.error ? (
+								{this.state.EZWPerror ? (
 									<div
 										display="block"
 										word-wrap="break-word"
@@ -210,11 +216,11 @@ class App extends React.Component {
 											display: "block",
 										}}
 									>
-										{`${this.state.errorMessage}`}
+										{`${this.state.EZWPerrorMessage}`}
 									</div>
 								) : null}
 								{
-									// end dissplaying error message
+									// end dissplaying EZWPerror message
 								}
 
 								<div
@@ -228,9 +234,9 @@ class App extends React.Component {
 											target="_blank"
 											rel="external noreferrer noopener"
 										>
-											Learn more about embeds
+											{__("Learn more about embeds")}
 											<span class="screen-reader-text">
-												(opens in a new tab)
+												{__("(opens in a new tab)")}
 											</span>
 										</a>
 									</ExternalLink>
@@ -240,10 +246,10 @@ class App extends React.Component {
 					</Placeholder>
 					<BlockControls>
 						<BlockAlignmentToolbar
-							value={this.props.attributes.block_alignment}
+							value={this.props.attributes.EZWPblock_alignment}
 							onChange={(new_val) => {
 								this.props.setAttributes({
-									block_alignment: new_val,
+									EZWPblock_alignment: new_val,
 								});
 							}}
 						/>
@@ -258,40 +264,41 @@ class App extends React.Component {
 
 		window // window === whe whole dom, used to get webService script.
 			.WebService("https://ezwp.tv/VideoServices")
-			.GetVideoGet(VID, this.state.responceType).onResult = async (
+			.GetVideoGet(VID, this.state.EZWPresponceType).onResult = async (
 			result
 		) => {
 			console.log(result.StatusMessage, " this is results");
 			if ((await result.Object) === null) {
 				console.log("Error! Not able to get Video.");
 				this.setState({
-					errorMessage: "Error! Unable to get video, maybe bad link",
-					error: true,
+					EZWPerrorMessage:
+						"Error! Unable to get video, maybe bad link",
+					EZWPerror: true,
 				});
 			} else {
 				try {
-					let TempIframeCode = await result.Object.Share.IFrameCode.toString();
+					let EZWPTempIframeCode = await result.Object.Share.IFrameCode.toString();
 
-					this.setState({ finalIframeCode: TempIframeCode });
+					this.setState({ finalIframeCode: EZWPTempIframeCode });
 					this.setState({ renderIframeR: true });
 
 					// Getting responsive iframe URL
 					await this.GetResponsiveCode(
-						TempIframeCode.split('"')[1],
-						TempIframeCode.split("w=")[1].split("&")[0],
-						TempIframeCode.split("h=")[1].split('"')[0]
+						EZWPTempIframeCode.split('"')[1],
+						EZWPTempIframeCode.split("w=")[1].split("&")[0],
+						EZWPTempIframeCode.split("h=")[1].split('"')[0]
 					);
 					// Getting static iframe URL
-					await this.GetStaticCode(TempIframeCode.split('"')[1]);
+					await this.GetStaticCode(EZWPTempIframeCode.split('"')[1]);
 					this.props.setAttributes({
-						displayIframe: true,
+						EZWPdisplayIframe: true,
 					});
 				} catch (err) {
 					console.log("Error! ", err.message);
 					this.setState({
-						errorMessage:
+						EZWPerrorMessage:
 							"Error! Unable to get video, maybe bad link",
-						error: true,
+						EZWPerror: true,
 					});
 				}
 			}
@@ -305,36 +312,37 @@ class App extends React.Component {
 			.WebService("https://ezwp.tv/VideoServices")
 			.GetChannelGet(
 				CID,
-				this.state.responceType // setting what kind of response the users wants from EZWebPlayer web script.
+				this.state.EZWPresponceType // setting what kind of response the users wants from EZWebPlayer web script.
 			).onResult = async (result) => {
 			if ((await result.Object) === null || undefined) {
 				console.log("Error! Not able to get Video.");
 				this.setState({
-					errorMessage: "Error! Unable to get video, maybe bad link",
-					error: true,
+					EZWPerrorMessage:
+						"Error! Unable to get video, maybe bad link",
+					EZWPerror: true,
 				});
 			} else {
 				try {
-					let TempIframeCode = await result.Object.Share.IFrameCode.toString();
-					this.setState({ finalIframeCode: TempIframeCode });
+					let EZWPTempIframeCode = await result.Object.Share.IFrameCode.toString();
+					this.setState({ finalIframeCode: EZWPTempIframeCode });
 
 					// Getting responsive iframe URL
 					await this.GetResponsiveCode(
-						TempIframeCode.split('"')[1],
-						TempIframeCode.split("w=")[1].split("&")[0],
-						TempIframeCode.split("h=")[1].split('"')[0]
+						EZWPTempIframeCode.split('"')[1],
+						EZWPTempIframeCode.split("w=")[1].split("&")[0],
+						EZWPTempIframeCode.split("h=")[1].split('"')[0]
 					);
 					// Getting static iframe URL
-					await this.GetStaticCode(TempIframeCode.split('"')[1]);
+					await this.GetStaticCode(EZWPTempIframeCode.split('"')[1]);
 					this.props.setAttributes({
-						displayIframe: true,
+						EZWPdisplayIframe: true,
 					});
 				} catch (err) {
 					console.log("Error! ", err);
 					this.setState({
-						errorMessage:
+						EZWPerrorMessage:
 							"Error! Unable to get video, maybe bad link",
-						error: true,
+						EZWPerror: true,
 					});
 				}
 			}
@@ -349,32 +357,32 @@ class App extends React.Component {
 	};
 	SplitingLink = () => {
 		// SplitingLink takes the users input and determs weather it is a channal or video
-		this.props.setAttributes({ responsiveType: true });
+		this.props.setAttributes({ EZWPresponsiveType: true });
 		// needs to be changed to a ref
 		if (document.querySelector(".input-text")) {
 			this.props.setAttributes({
-				videoURL: (this.state.videoURL = document.querySelector(
+				EZWPvideoURL: (this.state.EZWPvideoURL = document.querySelector(
 					".input-text"
 				).value),
 			});
 		}
-		console.log(this.state.videoURL, "Getting Iframe");
+		console.log(this.state.EZWPvideoURL, "Getting Iframe");
 		//Text Area Length
-		var TAL = this.state.videoURL.split(".");
+		var TAL = this.state.EZWPvideoURL.split(".");
 		if (TAL.length == 2) {
 			//https://domain.com/playerinfo
 			if (TAL[1].split("/C/").length >= 2) {
 				//Channel Player
 				this.GetChannelPlayerInfo(
 					TAL[1].split("/C/")[1],
-					this.props.attributes.responsiveType
+					this.props.attributes.EZWPresponsiveType
 				);
 			} else if (TAL[1].split("/V").length >= 2) {
 				//Video Player
 
 				this.GetVideoPlayerInfo(
 					TAL[1].split("/V")[1],
-					this.props.attributes.responsiveType
+					this.props.attributes.EZWPresponsiveType
 				);
 			}
 		} else if (TAL.length == 3) {
@@ -384,47 +392,25 @@ class App extends React.Component {
 
 				this.GetChannelPlayerInfo(
 					TAL[2].split("/C/")[1],
-					this.props.attributes.responsiveType
+					this.props.attributes.EZWPresponsiveType
 				);
 			} else if (TAL[2].split("/V").length >= 2) {
 				//Video Player
 
 				this.GetVideoPlayerInfo(
 					TAL[2].split("/V")[1],
-					this.props.attributes.responsiveType
+					this.props.attributes.EZWPresponsiveType
 				);
 			} else {
 				console.log("can not use this link");
 			}
 		} else {
 			this.setState({
-				error: true,
-				errorMessage: "Please enter link from EZWebPlayer",
+				EZWPerror: true,
+				EZWPerrorMessage: "Please enter link from EZWebPlayer",
 			});
 		}
 	};
-
-	//======================================================
-	componentDidMount() {
-		//
-		// loading both webservice script and Jquery
-		// jquery is used inside of webservice script and must be loaded
-		// const EZWebScript = document.createElement("script");
-		// EZWebScript.type = "text/javascript";
-		// EZWebScript.src = "https://ezwp.tv/Scripts/webService.js";
-		// EZWebScript.async = false;
-		// document.head.appendChild(EZWebScript);
-		// console.log(EZWebScript);
-		// const de = document.createElement("script");
-		// de.type = "text/javascript";
-		// de.src = "https://code.jquery.com/jquery-3.5.1.min.js";
-		// de.async = false;
-		// document.head.appendChild(de);
-		// console.log(de);
-		// EZWebScript.onload = () => console.log("script loaded");
-		// de.onload = () => console.log("JQuery is loaded");
-	}
-	// ==================================================
 }
 
 export default App;

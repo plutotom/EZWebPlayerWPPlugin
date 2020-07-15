@@ -22,9 +22,9 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 	title: "EZWebPlayer",
 	description: (
 		<p>
-			Sign up for your free trial account today:
+			{__("Sign up for your free trial account today:")}
 			<a href="https://my.ezwebplayer.com/Register" target="_blank">
-				Here
+				{__("Here")}
 			</a>
 		</p>
 	),
@@ -40,79 +40,79 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 		"embed",
 		"video embed",
 		"easy web player",
-		"easy player")
+		"easy player"),
 	],
 
 	attributes: {
-		responsiveIFrameSrc: {
+		EZWPresponsiveIFrameSrc: {
 			type: "string",
 			selector: "iframe",
-			attribute: "src"
+			attribute: "src",
 		},
-		staticIframeSrc: {
+		EZWPstaticIframeSrc: {
 			type: "string",
 
 			selector: "iframe",
-			attribute: "src"
+			attribute: "src",
 		},
-		displayIframe: {
-			type: "boolean"
+		EZWPdisplayIframe: {
+			type: "boolean",
 		},
-		responsiveType: {
-			type: "boolean"
+		EZWPresponsiveType: {
+			type: "boolean",
 		},
-		videoURL: {
-			type: "string"
+		EZWPvideoURL: {
+			type: "string",
 		},
-		videoNP: {
+		EZWPvideoNP: {
 			type: "integer",
 			selector: "div",
-			attribute: "paddingBottom"
+			attribute: "paddingBottom",
 		},
-		IFrameW: {
+		EZWPIFrameW: {
 			type: "string",
 			selector: "iframeR",
-			attribute: "width"
+			attribute: "width",
 		},
-		IFrameH: {
+		EZWPIFrameH: {
 			type: "string",
 			selector: "iframe",
-			attribute: "height"
+			attribute: "height",
 		},
-		inputedLink: {
+		EZWPinputedLink: {
 			type: "string",
 			slector: "input",
 			attribute: "value",
-			default: null
+			default: null,
 		},
-		block_alignment: {
+		EZWPblock_alignment: {
 			type: "string",
-			default: "wide"
-		}
+			default: "wide",
+		},
 	},
-	getEditWrapperProps: ({ block_alignment }) => {
+	getEditWrapperProps: ({ EZWPblock_alignment }) => {
 		// this gets the attribut element and looks to see if it is not set to default
 		if (
-			"left" === block_alignment ||
-			"right" === block_alignment ||
-			"full" === block_alignment
+			"left" === EZWPblock_alignment ||
+			"right" === EZWPblock_alignment ||
+			"full" === EZWPblock_alignment
 		) {
-			return { "data-align": block_alignment };
+			return { "data-align": EZWPblock_alignment };
 		}
 	},
 	// @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	edit, //imported in from edit.js built in react + ES6
-	save: function(props) {
-		if (props.attributes.responsiveType) {
+	save: function (props) {
+		if (props.attributes.EZWPresponsiveType) {
 			return (
 				<Fragment>
 					<div
-						className={`wp-block-embed align${props.attributes.block_alignment}`}
+						className={`wp-block-embed align${props.attributes.EZWPblock_alignment}`}
 					>
 						<style
 							dangerouslySetInnerHTML={{
 								__html:
-									".Video iframe,.Video object,.Video embed,.Video video,.Video img {position:absolute; width:100%; height:100%; left:0; top:0;}"
+									".Video iframe,.Video object,.Video embed,.Video video,.Video img {position:absolute; width:100%; height:100%; left:0; top:0;}",
 							}}
 						/>
 						<div
@@ -121,16 +121,16 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 								position: "relative",
 								width: "100%",
 								height: "0",
-								paddingBottom: `${props.attributes.videoNP}%`
+								paddingBottom: `${props.attributes.EZWPvideoNP}%`,
 							}}
 						>
-							{console.log(props.attributes.block_alignment)}
+							{console.log(props.attributes.EZWPblock_alignment)}
 							<iframe
 								className="iframeR "
-								src={props.attributes.responsiveIFrameSrc}
+								src={props.attributes.EZWPresponsiveIFrameSrc}
 								scrolling="no"
 								style={{
-									borderWidth: "0"
+									borderWidth: "0",
 								}}
 								allowFullScreen=""
 							></iframe>
@@ -141,5 +141,5 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 		} else {
 			return <p>{__("somthing went wrong sorry")}</p>;
 		}
-	}
+	},
 });

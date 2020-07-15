@@ -217,32 +217,32 @@ var App = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, attributes);
 
     _defineProperty(_assertThisInitialized(_this), "GetResponsiveCode", /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(IFrameSrc, IFrameW, IFrameH) {
+      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(EZWPIFrameSrc, EZWPIFrameW, EZWPIFrameH) {
         var NP;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log("running get responsive code", IFrameW, IFrameH);
-                IFrameSrc = IFrameSrc + "&r"; // requierd for responsive iframe
+                console.log("running get responsive code", EZWPIFrameW, EZWPIFrameH);
+                EZWPIFrameSrc = EZWPIFrameSrc + "&r"; // requierd for responsive iframe
                 //New Percent
 
-                NP = Math.round(parseInt(IFrameH) / parseInt(IFrameW) * 100);
+                NP = Math.round(parseInt(EZWPIFrameH) / parseInt(EZWPIFrameW) * 100);
 
                 _this.props.setAttributes({
-                  IFrameW: IFrameW
+                  EZWPIFrameW: EZWPIFrameW
                 });
 
                 _this.props.setAttributes({
-                  IFrameH: IFrameH
+                  EZWPIFrameH: EZWPIFrameH
                 });
 
                 _this.props.setAttributes({
-                  responsiveIFrameSrc: IFrameSrc
+                  EZWPresponsiveIFrameSrc: EZWPIFrameSrc
                 });
 
                 _this.props.setAttributes({
-                  videoNP: NP
+                  EZWPvideoNP: NP
                 });
 
               case 7:
@@ -258,11 +258,11 @@ var App = /*#__PURE__*/function (_React$Component) {
       };
     }());
 
-    _defineProperty(_assertThisInitialized(_this), "GetStaticCode", function (iframeSrc) {
+    _defineProperty(_assertThisInitialized(_this), "GetStaticCode", function (EZWPiframeSrc) {
       console.log("running Static code");
 
       _this.props.setAttributes({
-        staticIframeSrc: iframeSrc
+        EZWPstaticIframeSrc: EZWPiframeSrc
       });
     });
 
@@ -275,9 +275,9 @@ var App = /*#__PURE__*/function (_React$Component) {
                 console.log("GetVideoPlayerInfo running", VID);
 
                 window // window === whe whole dom, used to get webService script.
-                .WebService("https://ezwp.tv/VideoServices").GetVideoGet(VID, _this.state.responceType).onResult = /*#__PURE__*/function () {
+                .WebService("https://ezwp.tv/VideoServices").GetVideoGet(VID, _this.state.EZWPresponceType).onResult = /*#__PURE__*/function () {
                   var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(result) {
-                    var TempIframeCode;
+                    var EZWPTempIframeCode;
                     return regeneratorRuntime.wrap(function _callee2$(_context2) {
                       while (1) {
                         switch (_context2.prev = _context2.next) {
@@ -297,8 +297,8 @@ var App = /*#__PURE__*/function (_React$Component) {
                             console.log("Error! Not able to get Video.");
 
                             _this.setState({
-                              errorMessage: "Error! Unable to get video, maybe bad link",
-                              error: true
+                              EZWPerrorMessage: "Error! Unable to get video, maybe bad link",
+                              EZWPerror: true
                             });
 
                             _context2.next = 26;
@@ -310,10 +310,10 @@ var App = /*#__PURE__*/function (_React$Component) {
                             return result.Object.Share.IFrameCode.toString();
 
                           case 12:
-                            TempIframeCode = _context2.sent;
+                            EZWPTempIframeCode = _context2.sent;
 
                             _this.setState({
-                              finalIframeCode: TempIframeCode
+                              finalIframeCode: EZWPTempIframeCode
                             });
 
                             _this.setState({
@@ -322,15 +322,15 @@ var App = /*#__PURE__*/function (_React$Component) {
 
 
                             _context2.next = 17;
-                            return _this.GetResponsiveCode(TempIframeCode.split('"')[1], TempIframeCode.split("w=")[1].split("&")[0], TempIframeCode.split("h=")[1].split('"')[0]);
+                            return _this.GetResponsiveCode(EZWPTempIframeCode.split('"')[1], EZWPTempIframeCode.split("w=")[1].split("&")[0], EZWPTempIframeCode.split("h=")[1].split('"')[0]);
 
                           case 17:
                             _context2.next = 19;
-                            return _this.GetStaticCode(TempIframeCode.split('"')[1]);
+                            return _this.GetStaticCode(EZWPTempIframeCode.split('"')[1]);
 
                           case 19:
                             _this.props.setAttributes({
-                              displayIframe: true
+                              EZWPdisplayIframe: true
                             });
 
                             _context2.next = 26;
@@ -342,8 +342,8 @@ var App = /*#__PURE__*/function (_React$Component) {
                             console.log("Error! ", _context2.t1.message);
 
                             _this.setState({
-                              errorMessage: "Error! Unable to get video, maybe bad link",
-                              error: true
+                              EZWPerrorMessage: "Error! Unable to get video, maybe bad link",
+                              EZWPerror: true
                             });
 
                           case 26:
@@ -381,10 +381,10 @@ var App = /*#__PURE__*/function (_React$Component) {
                 console.log(CID, "GetChannelPlayerInfo", R);
 
                 window // window === the whole dom, used to get webService script.
-                .WebService("https://ezwp.tv/VideoServices").GetChannelGet(CID, _this.state.responceType // setting what kind of response the users wants from EZWebPlayer web script.
+                .WebService("https://ezwp.tv/VideoServices").GetChannelGet(CID, _this.state.EZWPresponceType // setting what kind of response the users wants from EZWebPlayer web script.
                 ).onResult = /*#__PURE__*/function () {
                   var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(result) {
-                    var TempIframeCode;
+                    var EZWPTempIframeCode;
                     return regeneratorRuntime.wrap(function _callee4$(_context4) {
                       while (1) {
                         switch (_context4.prev = _context4.next) {
@@ -412,8 +412,8 @@ var App = /*#__PURE__*/function (_React$Component) {
                             console.log("Error! Not able to get Video.");
 
                             _this.setState({
-                              errorMessage: "Error! Unable to get video, maybe bad link",
-                              error: true
+                              EZWPerrorMessage: "Error! Unable to get video, maybe bad link",
+                              EZWPerror: true
                             });
 
                             _context4.next = 27;
@@ -425,23 +425,23 @@ var App = /*#__PURE__*/function (_React$Component) {
                             return result.Object.Share.IFrameCode.toString();
 
                           case 14:
-                            TempIframeCode = _context4.sent;
+                            EZWPTempIframeCode = _context4.sent;
 
                             _this.setState({
-                              finalIframeCode: TempIframeCode
+                              finalIframeCode: EZWPTempIframeCode
                             }); // Getting responsive iframe URL
 
 
                             _context4.next = 18;
-                            return _this.GetResponsiveCode(TempIframeCode.split('"')[1], TempIframeCode.split("w=")[1].split("&")[0], TempIframeCode.split("h=")[1].split('"')[0]);
+                            return _this.GetResponsiveCode(EZWPTempIframeCode.split('"')[1], EZWPTempIframeCode.split("w=")[1].split("&")[0], EZWPTempIframeCode.split("h=")[1].split('"')[0]);
 
                           case 18:
                             _context4.next = 20;
-                            return _this.GetStaticCode(TempIframeCode.split('"')[1]);
+                            return _this.GetStaticCode(EZWPTempIframeCode.split('"')[1]);
 
                           case 20:
                             _this.props.setAttributes({
-                              displayIframe: true
+                              EZWPdisplayIframe: true
                             });
 
                             _context4.next = 27;
@@ -453,8 +453,8 @@ var App = /*#__PURE__*/function (_React$Component) {
                             console.log("Error! ", _context4.t2);
 
                             _this.setState({
-                              errorMessage: "Error! Unable to get video, maybe bad link",
-                              error: true
+                              EZWPerrorMessage: "Error! Unable to get video, maybe bad link",
+                              EZWPerror: true
                             });
 
                           case 27:
@@ -494,61 +494,61 @@ var App = /*#__PURE__*/function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "SplitingLink", function () {
       // SplitingLink takes the users input and determs weather it is a channal or video
       _this.props.setAttributes({
-        responsiveType: true
+        EZWPresponsiveType: true
       }); // needs to be changed to a ref
 
 
       if (document.querySelector(".input-text")) {
         _this.props.setAttributes({
-          videoURL: _this.state.videoURL = document.querySelector(".input-text").value
+          EZWPvideoURL: _this.state.EZWPvideoURL = document.querySelector(".input-text").value
         });
       }
 
-      console.log(_this.state.videoURL, "Getting Iframe"); //Text Area Length
+      console.log(_this.state.EZWPvideoURL, "Getting Iframe"); //Text Area Length
 
-      var TAL = _this.state.videoURL.split(".");
+      var TAL = _this.state.EZWPvideoURL.split(".");
 
       if (TAL.length == 2) {
         //https://domain.com/playerinfo
         if (TAL[1].split("/C/").length >= 2) {
           //Channel Player
-          _this.GetChannelPlayerInfo(TAL[1].split("/C/")[1], _this.props.attributes.responsiveType);
+          _this.GetChannelPlayerInfo(TAL[1].split("/C/")[1], _this.props.attributes.EZWPresponsiveType);
         } else if (TAL[1].split("/V").length >= 2) {
           //Video Player
-          _this.GetVideoPlayerInfo(TAL[1].split("/V")[1], _this.props.attributes.responsiveType);
+          _this.GetVideoPlayerInfo(TAL[1].split("/V")[1], _this.props.attributes.EZWPresponsiveType);
         }
       } else if (TAL.length == 3) {
         //https://cname.domain.com/playerinfo
         if (TAL[2].split("/C/").length >= 2) {
           //Channel Player
-          _this.GetChannelPlayerInfo(TAL[2].split("/C/")[1], _this.props.attributes.responsiveType);
+          _this.GetChannelPlayerInfo(TAL[2].split("/C/")[1], _this.props.attributes.EZWPresponsiveType);
         } else if (TAL[2].split("/V").length >= 2) {
           //Video Player
-          _this.GetVideoPlayerInfo(TAL[2].split("/V")[1], _this.props.attributes.responsiveType);
+          _this.GetVideoPlayerInfo(TAL[2].split("/V")[1], _this.props.attributes.EZWPresponsiveType);
         } else {
           console.log("can not use this link");
         }
       } else {
         _this.setState({
-          error: true,
-          errorMessage: "Please enter link from EZWebPlayer"
+          EZWPerror: true,
+          EZWPerrorMessage: "Please enter link from EZWebPlayer"
         });
       }
     });
 
     _this.state = {
-      videoURL: _this.props.attributes.videoURL,
+      EZWPvideoURL: _this.props.attributes.EZWPvideoURL,
       // this may be used to hold link for btns
-      responceType: "4",
+      EZWPresponceType: "4",
       // tells webservice what responsive we want
-      renderIframeR: _this.props.attributes.displayIframe,
+      EZWPrenderIframeR: _this.props.attributes.EZWPdisplayIframe,
       // responsive == true, static == false
-      responsiveType: _this.props.attributes.responsiveType,
+      EZWPresponsiveType: _this.props.attributes.EZWPresponsiveType,
       // weather statice or responsive video
-      inputedLink: _this.props.attributes.inputedLink,
-      errorMessage: null,
-      // If errorMessage is not === to null then display error message to user
-      error: false
+      EZWPinputedLink: _this.props.attributes.EZWPinputedLink,
+      EZWPerrorMessage: null,
+      // If EZWPerrorMessage is not === to null then display EZWPerror message to user
+      EZWPerror: false
     };
     return _this;
   } //======================================================
@@ -561,22 +561,22 @@ var App = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       if ( // responsive iframe render
-      this.props.attributes.displayIframe === true && this.props.attributes.responsiveType === true) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, console.log(this.props.attributes.block_alignment), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("style", {
+      this.props.attributes.EZWPdisplayIframe === true && this.props.attributes.EZWPresponsiveType === true) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, console.log(this.props.attributes.EZWPblock_alignment), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("style", {
           dangerouslySetInnerHTML: {
             __html: ".Video iframe,.Video object,.Video embed,.Video video,.Video img {position:absolute; width:100%; height:100%; left:0; top:0;}"
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "Video video responsive-iframe wp-block-embed align".concat(this.props.attributes.block_alignment),
+          className: "Video video responsive-iframe wp-block-embed align".concat(this.props.attributes.EZWPblock_alignment),
           style: {
             position: "relative",
             width: "100%",
             height: "0",
-            paddingBottom: "".concat(this.props.attributes.videoNP, "%")
+            paddingBottom: "".concat(this.props.attributes.EZWPvideoNP, "%")
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
           className: "iframe",
-          src: this.state.IFrameSrc || this.props.attributes.responsiveIFrameSrc,
+          src: this.state.EZWPIFrameSrc || this.props.attributes.EZWPresponsiveIFrameSrc,
           scrolling: "no",
           style: {
             borderWidth: "0"
@@ -590,17 +590,17 @@ var App = /*#__PURE__*/function (_React$Component) {
           className: "EZWebplayer-edit-btn",
           onClick: function onClick() {
             return _this2.props.setAttributes({
-              displayIframe: false
+              EZWPdisplayIframe: false
             });
           }
         })),
         /*#__PURE__*/
         // Adds icon in toopbar to align left, center, right
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockAlignmentToolbar, {
-          value: this.props.attributes.block_alignment,
+          value: this.props.attributes.EZWPblock_alignment,
           onChange: function onChange(new_val) {
             _this2.props.setAttributes({
-              block_alignment: new_val
+              EZWPblock_alignment: new_val
             });
           }
         })));
@@ -608,7 +608,7 @@ var App = /*#__PURE__*/function (_React$Component) {
         return (
           /*#__PURE__*/
           // Input Form
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, console.log(this.props.attributes.block_alignment), console.log("displaying input html", this.props.attributes, this.state), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Placeholder, {
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, console.log(this.props.attributes.EZWPblock_alignment), console.log("displaying input html", this.props.attributes, this.state), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Placeholder, {
             className: "wp-block-embed"
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "components-placeholder__label "
@@ -626,10 +626,10 @@ var App = /*#__PURE__*/function (_React$Component) {
             id: "ezWebPlayer-link-input",
             className: "input-text",
             placeholder: __("Enter URL to embed here…"),
-            value: this.props.attributes.inputedLink,
+            value: this.props.attributes.EZWPinputedLink,
             onChange: function onChange(e) {
               _this2.props.setAttributes({
-                inputedLink: e.target.value
+                EZWPinputedLink: e.target.value
               });
             },
             style: {
@@ -647,7 +647,7 @@ var App = /*#__PURE__*/function (_React$Component) {
             onClick: this.initEmbed
           }, __("Embed", "Embed"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             display: "block"
-          }, this.state.error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          }, this.state.EZWPerror ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             display: "block",
             "word-wrap": "break-word",
             className: "alert",
@@ -656,7 +656,7 @@ var App = /*#__PURE__*/function (_React$Component) {
               color: "red",
               display: "block"
             }
-          }, "".concat(this.state.errorMessage)) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          }, "".concat(this.state.EZWPerrorMessage)) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "components-placeholder__learn-more",
             style: {
               display: "block"
@@ -666,41 +666,19 @@ var App = /*#__PURE__*/function (_React$Component) {
             href: "https://wordpress.org/support/article/embeds/",
             target: "_blank",
             rel: "external noreferrer noopener"
-          }, "Learn more about embeds", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          }, __("Learn more about embeds"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             class: "screen-reader-text"
-          }, "(opens in a new tab)"))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockControls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockAlignmentToolbar, {
-            value: this.props.attributes.block_alignment,
+          }, __("(opens in a new tab)")))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockControls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockAlignmentToolbar, {
+            value: this.props.attributes.EZWPblock_alignment,
             onChange: function onChange(new_val) {
               _this2.props.setAttributes({
-                block_alignment: new_val
+                EZWPblock_alignment: new_val
               });
             }
           })))
         );
       }
     } // ==================================================
-
-  }, {
-    key: "componentDidMount",
-    //======================================================
-    value: function componentDidMount() {} //
-    // loading both webservice script and Jquery
-    // jquery is used inside of webservice script and must be loaded
-    // const EZWebScript = document.createElement("script");
-    // EZWebScript.type = "text/javascript";
-    // EZWebScript.src = "https://ezwp.tv/Scripts/webService.js";
-    // EZWebScript.async = false;
-    // document.head.appendChild(EZWebScript);
-    // console.log(EZWebScript);
-    // const de = document.createElement("script");
-    // de.type = "text/javascript";
-    // de.src = "https://code.jquery.com/jquery-3.5.1.min.js";
-    // de.async = false;
-    // document.head.appendChild(de);
-    // console.log(de);
-    // EZWebScript.onload = () => console.log("script loaded");
-    // de.onload = () => console.log("JQuery is loaded");
-    // ==================================================
 
   }]);
 
@@ -750,68 +728,68 @@ __webpack_require__.r(__webpack_exports__);
 Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])("ezwebplayer/ezweb-player-embeded", {
   // Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
   title: "EZWebPlayer",
-  description: /*#__PURE__*/React.createElement("p", null, "Sign up for your free trial account today:", /*#__PURE__*/React.createElement("a", {
+  description: /*#__PURE__*/React.createElement("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])("Sign up for your free trial account today:"), /*#__PURE__*/React.createElement("a", {
     href: "https://my.ezwebplayer.com/Register",
     target: "_blank"
-  }, "Here")),
+  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])("Here"))),
   icon: _images_Logo_js__WEBPACK_IMPORTED_MODULE_1__["default"].EZWebPlayerIcon,
   category: "embed",
   // https://developer.wordpress.org/block-editor/developers/filters/block-filters/#managing-block-categories
   keywords: [( // Key words are search words, when someone types video, ezwebpalyer will be a response.
   "Video", "Streaming", "EZWebPlayer", "EZweb", "EZ Web Player", "embed", "video embed", "easy web player", "easy player")],
   attributes: {
-    responsiveIFrameSrc: {
+    EZWPresponsiveIFrameSrc: {
       type: "string",
       selector: "iframe",
       attribute: "src"
     },
-    staticIframeSrc: {
+    EZWPstaticIframeSrc: {
       type: "string",
       selector: "iframe",
       attribute: "src"
     },
-    displayIframe: {
+    EZWPdisplayIframe: {
       type: "boolean"
     },
-    responsiveType: {
+    EZWPresponsiveType: {
       type: "boolean"
     },
-    videoURL: {
+    EZWPvideoURL: {
       type: "string"
     },
-    videoNP: {
+    EZWPvideoNP: {
       type: "integer",
       selector: "div",
       attribute: "paddingBottom"
     },
-    IFrameW: {
+    EZWPIFrameW: {
       type: "string",
       selector: "iframeR",
       attribute: "width"
     },
-    IFrameH: {
+    EZWPIFrameH: {
       type: "string",
       selector: "iframe",
       attribute: "height"
     },
-    inputedLink: {
+    EZWPinputedLink: {
       type: "string",
       slector: "input",
       attribute: "value",
       default: null
     },
-    block_alignment: {
+    EZWPblock_alignment: {
       type: "string",
       default: "wide"
     }
   },
   getEditWrapperProps: function getEditWrapperProps(_ref) {
-    var block_alignment = _ref.block_alignment;
+    var EZWPblock_alignment = _ref.EZWPblock_alignment;
 
     // this gets the attribut element and looks to see if it is not set to default
-    if ("left" === block_alignment || "right" === block_alignment || "full" === block_alignment) {
+    if ("left" === EZWPblock_alignment || "right" === EZWPblock_alignment || "full" === EZWPblock_alignment) {
       return {
-        "data-align": block_alignment
+        "data-align": EZWPblock_alignment
       };
     }
   },
@@ -819,9 +797,9 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])("ezw
   edit: _edit_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   //imported in from edit.js built in react + ES6
   save: function save(props) {
-    if (props.attributes.responsiveType) {
+    if (props.attributes.EZWPresponsiveType) {
       return /*#__PURE__*/React.createElement(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, /*#__PURE__*/React.createElement("div", {
-        className: "wp-block-embed align".concat(props.attributes.block_alignment)
+        className: "wp-block-embed align".concat(props.attributes.EZWPblock_alignment)
       }, /*#__PURE__*/React.createElement("style", {
         dangerouslySetInnerHTML: {
           __html: ".Video iframe,.Video object,.Video embed,.Video video,.Video img {position:absolute; width:100%; height:100%; left:0; top:0;}"
@@ -832,11 +810,11 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])("ezw
           position: "relative",
           width: "100%",
           height: "0",
-          paddingBottom: "".concat(props.attributes.videoNP, "%")
+          paddingBottom: "".concat(props.attributes.EZWPvideoNP, "%")
         }
-      }, console.log(props.attributes.block_alignment), /*#__PURE__*/React.createElement("iframe", {
+      }, console.log(props.attributes.EZWPblock_alignment), /*#__PURE__*/React.createElement("iframe", {
         className: "iframeR ",
-        src: props.attributes.responsiveIFrameSrc,
+        src: props.attributes.EZWPresponsiveIFrameSrc,
         scrolling: "no",
         style: {
           borderWidth: "0"
