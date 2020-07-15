@@ -20,14 +20,12 @@
 
 function enqueue_ezweb_player_block() {
   wp_enqueue_script(
-    'wrapper-block-example-js',
+    'EZWebPlayer-script-handle',
     esc_url( plugins_url( '/build/index.js', __FILE__ ) ),
     array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-components', 'jquery' ),
     '1.0.0',
 	true // Enqueue the script in the footer.
 	
-
-// add_action( 'wp_enqueue_scripts', 'script_that_requires_jquery' );
 
 );
 // EZWebPlayer script to recive video data. dependent on jquery
@@ -38,15 +36,6 @@ wp_register_script( 'Jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.
 wp_enqueue_script( 'Jquery' );
 
 }
-
-
-
-
-
-
-
-
-
 
 add_action( 'enqueue_block_assets', 'enqueue_ezweb_player_block' );
 

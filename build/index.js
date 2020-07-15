@@ -144,10 +144,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/js/edit.js":
-/*!************************!*\
-  !*** ./src/js/edit.js ***!
-  \************************/
+/***/ "./src/js/EZWPedit.js":
+/*!****************************!*\
+  !*** ./src/js/EZWPedit.js ***!
+  \****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -698,7 +698,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _edit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit.js */ "./src/js/edit.js");
+/* harmony import */ var _EZWPedit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EZWPedit.js */ "./src/js/EZWPedit.js");
 /* harmony import */ var _images_Logo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/Logo.js */ "./src/images/Logo.js");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__);
@@ -794,7 +794,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])("ezw
     }
   },
   // @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
-  edit: _edit_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+  edit: _EZWPedit_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   //imported in from edit.js built in react + ES6
   save: function save(props) {
     if (props.attributes.EZWPresponsiveType) {

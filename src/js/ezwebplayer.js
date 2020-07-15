@@ -1,5 +1,5 @@
 // importing dependecys
-import edit from "./edit.js";
+import edit from "./EZWPedit.js";
 import blockIcons from "../images/Logo.js";
 import { registerBlockType } from "@wordpress/blocks";
 import { __, _x } from "@wordpress/i18n";
