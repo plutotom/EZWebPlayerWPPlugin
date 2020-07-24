@@ -185,6 +185,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+ // import $ from "jquery";
 
 var InspectorControls = wp.editor.InspectorControls;
 var __ = wp.i18n.__;
@@ -267,104 +268,67 @@ var App = /*#__PURE__*/function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "GetVideoPlayerInfo", /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(VID, R) {
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(VID, R) {
+        var WSURL, WSType, URL, xmlHttp, EZWPTempIframeCode;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 console.log("GetVideoPlayerInfo running", VID);
+                WSURL = "https://ezwp.tv/VideoServices/V1/"; //Web Service URL
 
-                window // window === whe whole dom, used to get webService script.
-                .WebService("https://ezwp.tv/VideoServices").GetVideoGet(VID, _this.state.EZWPresponceType).onResult = /*#__PURE__*/function () {
-                  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(result) {
-                    var EZWPTempIframeCode;
-                    return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                      while (1) {
-                        switch (_context2.prev = _context2.next) {
-                          case 0:
-                            console.log(result.StatusMessage, " this is results");
-                            _context2.next = 3;
-                            return result.Object;
+                WSType = "63"; //Web Service Type
 
-                          case 3:
-                            _context2.t0 = _context2.sent;
+                URL = WSURL + "GetVideo?videoID=" + VID + "&type=" + WSType;
+                _context2.prev = 4;
+                xmlHttp = new XMLHttpRequest();
+                _context2.next = 8;
+                return xmlHttp.open("GET", URL, false);
 
-                            if (!(_context2.t0 === null)) {
-                              _context2.next = 9;
-                              break;
-                            }
+              case 8:
+                _context2.next = 10;
+                return xmlHttp.send(null);
 
-                            console.log("Error! Not able to get Video.");
+              case 10:
+                console.log(JSON.parse(xmlHttp.responseText).Object.Share.IFrameCode);
+                EZWPTempIframeCode = JSON.parse(xmlHttp.responseText).Object.Share.IFrameCode;
+                _context2.next = 14;
+                return _this.setState({
+                  finalIframeCode: EZWPTempIframeCode
+                });
 
-                            _this.setState({
-                              EZWPerrorMessage: "Error! Unable to get video, maybe bad link",
-                              EZWPerror: true
-                            });
+              case 14:
+                _context2.next = 16;
+                return _this.GetResponsiveCode(EZWPTempIframeCode.split('"')[1], EZWPTempIframeCode.split("w=")[1].split("&")[0], EZWPTempIframeCode.split("h=")[1].split('"')[0]);
 
-                            _context2.next = 26;
-                            break;
+              case 16:
+                _context2.next = 18;
+                return _this.GetStaticCode(EZWPTempIframeCode.split('"')[1]);
 
-                          case 9:
-                            _context2.prev = 9;
-                            _context2.next = 12;
-                            return result.Object.Share.IFrameCode.toString();
+              case 18:
+                _this.props.setAttributes({
+                  EZWPdisplayIframe: true
+                });
 
-                          case 12:
-                            EZWPTempIframeCode = _context2.sent;
+                _context2.next = 25;
+                break;
 
-                            _this.setState({
-                              finalIframeCode: EZWPTempIframeCode
-                            });
+              case 21:
+                _context2.prev = 21;
+                _context2.t0 = _context2["catch"](4);
+                console.log("Error! ", _context2.t0);
 
-                            _this.setState({
-                              renderIframeR: true
-                            }); // Getting responsive iframe URL
+                _this.setState({
+                  EZWPerrorMessage: "Error! Unable to get video, maybe bad link",
+                  EZWPerror: true
+                });
 
-
-                            _context2.next = 17;
-                            return _this.GetResponsiveCode(EZWPTempIframeCode.split('"')[1], EZWPTempIframeCode.split("w=")[1].split("&")[0], EZWPTempIframeCode.split("h=")[1].split('"')[0]);
-
-                          case 17:
-                            _context2.next = 19;
-                            return _this.GetStaticCode(EZWPTempIframeCode.split('"')[1]);
-
-                          case 19:
-                            _this.props.setAttributes({
-                              EZWPdisplayIframe: true
-                            });
-
-                            _context2.next = 26;
-                            break;
-
-                          case 22:
-                            _context2.prev = 22;
-                            _context2.t1 = _context2["catch"](9);
-                            console.log("Error! ", _context2.t1.message);
-
-                            _this.setState({
-                              EZWPerrorMessage: "Error! Unable to get video, maybe bad link",
-                              EZWPerror: true
-                            });
-
-                          case 26:
-                          case "end":
-                            return _context2.stop();
-                        }
-                      }
-                    }, _callee2, null, [[9, 22]]);
-                  }));
-
-                  return function (_x6) {
-                    return _ref3.apply(this, arguments);
-                  };
-                }();
-
-              case 2:
+              case 25:
               case "end":
-                return _context3.stop();
+                return _context2.stop();
             }
           }
-        }, _callee3);
+        }, _callee2, null, [[4, 21]]);
       }));
 
       return function (_x4, _x5) {
@@ -373,113 +337,71 @@ var App = /*#__PURE__*/function (_React$Component) {
     }());
 
     _defineProperty(_assertThisInitialized(_this), "GetChannelPlayerInfo", /*#__PURE__*/function () {
-      var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(CID, R) {
-        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(CID, R) {
+        var WSURL, WSType, URL, xmlHttp, EZWPTempIframeCode;
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 console.log(CID, "GetChannelPlayerInfo", R);
+                WSURL = "https://ezwp.tv/VideoServices/V1/"; //Web Service URL
 
-                window // window === the whole dom, used to get webService script.
-                .WebService("https://ezwp.tv/VideoServices").GetChannelGet(CID, _this.state.EZWPresponceType // setting what kind of response the users wants from EZWebPlayer web script.
-                ).onResult = /*#__PURE__*/function () {
-                  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(result) {
-                    var EZWPTempIframeCode;
-                    return regeneratorRuntime.wrap(function _callee4$(_context4) {
-                      while (1) {
-                        switch (_context4.prev = _context4.next) {
-                          case 0:
-                            _context4.next = 2;
-                            return result.Object;
+                WSType = "63"; //Web Service Type
 
-                          case 2:
-                            _context4.t1 = _context4.sent;
-                            _context4.t0 = _context4.t1 === null;
+                URL = WSURL + "GetChannel?channelID=" + CID + "&type=" + WSType;
+                _context3.prev = 4;
+                xmlHttp = new XMLHttpRequest();
+                _context3.next = 8;
+                return xmlHttp.open("GET", URL, false);
 
-                            if (_context4.t0) {
-                              _context4.next = 6;
-                              break;
-                            }
+              case 8:
+                _context3.next = 10;
+                return xmlHttp.send(null);
 
-                            _context4.t0 = undefined;
+              case 10:
+                console.log(JSON.parse(xmlHttp.responseText).Object.Share.IFrameCode);
+                EZWPTempIframeCode = JSON.parse(xmlHttp.responseText).Object.Share.IFrameCode;
+                _context3.next = 14;
+                return _this.setState({
+                  finalIframeCode: EZWPTempIframeCode
+                });
 
-                          case 6:
-                            if (!_context4.t0) {
-                              _context4.next = 11;
-                              break;
-                            }
+              case 14:
+                _context3.next = 16;
+                return _this.GetResponsiveCode(EZWPTempIframeCode.split('"')[1], EZWPTempIframeCode.split("w=")[1].split("&")[0], EZWPTempIframeCode.split("h=")[1].split('"')[0]);
 
-                            console.log("Error! Not able to get Video.");
+              case 16:
+                _context3.next = 18;
+                return _this.GetStaticCode(EZWPTempIframeCode.split('"')[1]);
 
-                            _this.setState({
-                              EZWPerrorMessage: "Error! Unable to get video, maybe bad link",
-                              EZWPerror: true
-                            });
+              case 18:
+                _this.props.setAttributes({
+                  EZWPdisplayIframe: true
+                });
 
-                            _context4.next = 27;
-                            break;
+                _context3.next = 25;
+                break;
 
-                          case 11:
-                            _context4.prev = 11;
-                            _context4.next = 14;
-                            return result.Object.Share.IFrameCode.toString();
+              case 21:
+                _context3.prev = 21;
+                _context3.t0 = _context3["catch"](4);
+                console.log("Error! ", _context3.t0);
 
-                          case 14:
-                            EZWPTempIframeCode = _context4.sent;
+                _this.setState({
+                  EZWPerrorMessage: "Error! Unable to get video, maybe bad link",
+                  EZWPerror: true
+                });
 
-                            _this.setState({
-                              finalIframeCode: EZWPTempIframeCode
-                            }); // Getting responsive iframe URL
-
-
-                            _context4.next = 18;
-                            return _this.GetResponsiveCode(EZWPTempIframeCode.split('"')[1], EZWPTempIframeCode.split("w=")[1].split("&")[0], EZWPTempIframeCode.split("h=")[1].split('"')[0]);
-
-                          case 18:
-                            _context4.next = 20;
-                            return _this.GetStaticCode(EZWPTempIframeCode.split('"')[1]);
-
-                          case 20:
-                            _this.props.setAttributes({
-                              EZWPdisplayIframe: true
-                            });
-
-                            _context4.next = 27;
-                            break;
-
-                          case 23:
-                            _context4.prev = 23;
-                            _context4.t2 = _context4["catch"](11);
-                            console.log("Error! ", _context4.t2);
-
-                            _this.setState({
-                              EZWPerrorMessage: "Error! Unable to get video, maybe bad link",
-                              EZWPerror: true
-                            });
-
-                          case 27:
-                          case "end":
-                            return _context4.stop();
-                        }
-                      }
-                    }, _callee4, null, [[11, 23]]);
-                  }));
-
-                  return function (_x9) {
-                    return _ref5.apply(this, arguments);
-                  };
-                }();
-
-              case 2:
+              case 25:
               case "end":
-                return _context5.stop();
+                return _context3.stop();
             }
           }
-        }, _callee5);
+        }, _callee3, null, [[4, 21]]);
       }));
 
-      return function (_x7, _x8) {
-        return _ref4.apply(this, arguments);
+      return function (_x6, _x7) {
+        return _ref3.apply(this, arguments);
       };
     }());
 
@@ -728,7 +650,7 @@ __webpack_require__.r(__webpack_exports__);
 Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])("ezwebplayer/ezweb-player-embeded", {
   // Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
   title: "EZWebPlayer",
-  description: /*#__PURE__*/React.createElement("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])("Sign up for your free trial account today:"), /*#__PURE__*/React.createElement("a", {
+  description: /*#__PURE__*/React.createElement("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])("Sign up for your free trial account today "), /*#__PURE__*/React.createElement("a", {
     href: "https://my.ezwebplayer.com/Register",
     target: "_blank"
   }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])("Here"))),

@@ -4,6 +4,7 @@ import blockIcons from "../images/Logo.js";
 import { registerBlockType } from "@wordpress/blocks";
 import { __, _x } from "@wordpress/i18n";
 import { Fragment } from "react";
+
 /**
  * Register: a Gutenberg Block.
  * Registers a new block provided a unique name and an object defining its
@@ -22,7 +23,7 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 	title: "EZWebPlayer",
 	description: (
 		<p>
-			{__("Sign up for your free trial account today:")}
+			{__("Sign up for your free trial account today ")}
 			<a href="https://my.ezwebplayer.com/Register" target="_blank">
 				{__("Here")}
 			</a>
@@ -40,55 +41,55 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 		"embed",
 		"video embed",
 		"easy web player",
-		"easy player"),
+		"easy player")
 	],
 
 	attributes: {
 		EZWPresponsiveIFrameSrc: {
 			type: "string",
 			selector: "iframe",
-			attribute: "src",
+			attribute: "src"
 		},
 		EZWPstaticIframeSrc: {
 			type: "string",
 
 			selector: "iframe",
-			attribute: "src",
+			attribute: "src"
 		},
 		EZWPdisplayIframe: {
-			type: "boolean",
+			type: "boolean"
 		},
 		EZWPresponsiveType: {
-			type: "boolean",
+			type: "boolean"
 		},
 		EZWPvideoURL: {
-			type: "string",
+			type: "string"
 		},
 		EZWPvideoNP: {
 			type: "integer",
 			selector: "div",
-			attribute: "paddingBottom",
+			attribute: "paddingBottom"
 		},
 		EZWPIFrameW: {
 			type: "string",
 			selector: "iframeR",
-			attribute: "width",
+			attribute: "width"
 		},
 		EZWPIFrameH: {
 			type: "string",
 			selector: "iframe",
-			attribute: "height",
+			attribute: "height"
 		},
 		EZWPinputedLink: {
 			type: "string",
 			slector: "input",
 			attribute: "value",
-			default: null,
+			default: null
 		},
 		EZWPblock_alignment: {
 			type: "string",
-			default: "wide",
-		},
+			default: "wide"
+		}
 	},
 	getEditWrapperProps: ({ EZWPblock_alignment }) => {
 		// this gets the attribut element and looks to see if it is not set to default
@@ -102,7 +103,7 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 	},
 	// @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	edit, //imported in from edit.js built in react + ES6
-	save: function (props) {
+	save: function(props) {
 		if (props.attributes.EZWPresponsiveType) {
 			return (
 				<Fragment>
@@ -112,7 +113,7 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 						<style
 							dangerouslySetInnerHTML={{
 								__html:
-									".Video iframe,.Video object,.Video embed,.Video video,.Video img {position:absolute; width:100%; height:100%; left:0; top:0;}",
+									".Video iframe,.Video object,.Video embed,.Video video,.Video img {position:absolute; width:100%; height:100%; left:0; top:0;}"
 							}}
 						/>
 						<div
@@ -121,7 +122,7 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 								position: "relative",
 								width: "100%",
 								height: "0",
-								paddingBottom: `${props.attributes.EZWPvideoNP}%`,
+								paddingBottom: `${props.attributes.EZWPvideoNP}%`
 							}}
 						>
 							{console.log(props.attributes.EZWPblock_alignment)}
@@ -130,7 +131,7 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 								src={props.attributes.EZWPresponsiveIFrameSrc}
 								scrolling="no"
 								style={{
-									borderWidth: "0",
+									borderWidth: "0"
 								}}
 								allowFullScreen=""
 							></iframe>
@@ -141,5 +142,5 @@ registerBlockType("ezwebplayer/ezweb-player-embeded", {
 		} else {
 			return <p>{__("somthing went wrong sorry")}</p>;
 		}
-	},
+	}
 });
