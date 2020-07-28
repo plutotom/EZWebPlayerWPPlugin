@@ -39,7 +39,7 @@ As a video content owner on WordPress, you have the benefit of a robust FLV/F4V/
 - Create video portals without spending a fortune. Just upload your videos and they appear automatically in your website and video landing pages.
 - Boost SEO, too. EZWebPlayer automatically a domain-branded video site map for you so the search engines find you easily.
 - EZWebPlayer hosts and manages your video library in the cloud making your video sharing scalable and affordable.
-- And EZWebPlayer is affordable with packages starting at just $14.99 per month. See pricing here: http://www.ezwebplayer.com/pricing/
+- And EZWebPlayer is affordable with packages starting at just $5.00 per month. See pricing here: http://www.ezwebplayer.com/pricing/
 
 
 The http://www.EZWebPlayer.com/ tool set simplifies the ability to integrate and manage even the largest of web video libraries directly from a WordPress dashboard. The professional level tools facilitate the understanding of consumer insights via the video consumption analytics.
@@ -48,7 +48,7 @@ Videos can be posted into a singular blog entry or by selecting numerous videos 
 
 Overall, this web video plugin for WordPress allows content owners increased flexibility and control to integrate streaming Flash video onto their blog pages.
 
-This plugin connects to EZWebPlayer's video management service. EZWebPlayer provides unlimited video storage, unlimited bandwidth via Amazon CloudFront delivery and many other enterprise level features for a low subscription starting at $14.99 per month. Take a Free 7 Day Trial.  Visit http://www.EZWebPlayer.com/
+This plugin connects to EZWebPlayer's video management service. EZWebPlayer provides unlimited video storage, unlimited bandwidth via Amazon CloudFront delivery and many other enterprise level features for a low subscription starting at $5 per month. Take a Free 7 Day Trial.  Visit http://www.EZWebPlayer.com/
 
 View demonstration videos here - http://www.ezwebplayer.com/demo/
 
