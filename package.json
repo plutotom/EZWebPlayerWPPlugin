@@ -16,7 +16,7 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.3",
     "babel-plugin-transform-react-jsx": "^6.24.1",
-    "eslint": "^6.6.0",
+    "eslint": "^9.26.0",
     "cross-env": "5.1.5",
     "eslint-config-wordpress": "^2.0.0",
     "eslint-plugin-jest": "^23.0.2",
